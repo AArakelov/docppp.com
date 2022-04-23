@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PageHomeComponent } from './page-home.component';
+import { PageDesktopComponent } from './page-desktop.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    component: PageHomeComponent,
+    component: PageDesktopComponent,
   },
 ];
+
 @NgModule({
-  declarations: [PageHomeComponent],
+  declarations: [PageDesktopComponent],
   imports: [CommonModule, RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [PageDesktopComponent, RouterModule],
 })
-export class PageHomeModule {}
+export class DesktopPageModule {}

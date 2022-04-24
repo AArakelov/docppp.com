@@ -33,4 +33,4 @@ import { TuiSidebarModule } from '@taiga-ui/addon-mobile';
   ],
   exports: [BlockPageHeaderComponent],
 })
-export class BlockPageHeaderModule {}
+export class BlockPageHeaderModule { }

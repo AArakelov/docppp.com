@@ -17,6 +17,8 @@ import { LoopbackModule } from './core/services/loopback.module';
 import { SignInModalModule } from './core/auth/containers/sign-in-modal/sign-in-modal.module';
 import { SignUpModalModule } from './core/auth/containers/sign-up-modal/sign-up-modal.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ResetPasswordModalModule } from './core/auth/containers/reset-password-modal/reset-password-modal.module';
+import { UserRoleGuard } from './guards/user-role.guard';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     TuiDialogModule,
     SignInModalModule,
     SignUpModalModule,
+    ResetPasswordModalModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([AuthEffects]),
@@ -42,6 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
 
     LoopbackModule,
   ],
+  providers: [UserRoleGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

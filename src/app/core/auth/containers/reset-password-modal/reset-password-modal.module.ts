@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
+import { ResetPasswordModalComponent } from './reset-password-modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TuiInputModule } from '@taiga-ui/kit';
+import { TuiButtonModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
 
 @NgModule({
-  declarations: [],
+  declarations: [ResetPasswordModalComponent],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    ReactiveFormsModule,
+    TuiInputModule,
+    TuiButtonModule,
+    TuiTextfieldControllerModule,
+  ],
 })
-export class ResetPasswordModalModule { }
+export class ResetPasswordModalModule {}

@@ -8,7 +8,7 @@ import {
 import { appRoutesNames } from '../../../app-routes.names';
 import { TuiHostedDropdownComponent } from '@taiga-ui/core';
 import { Store } from '@ngrx/store';
-import { authSelectors } from '../../../core/auth/store';
+import { authActions, authSelectors } from '../../../core/auth/store';
 import { Person } from '../../../interfaces';
 import { filter } from 'rxjs';
 import { mainConfig } from '../../../../config';
@@ -68,5 +68,9 @@ export class BlockPageHeaderComponent implements OnInit {
     this.userAvatar = user.avatar;
     this.userName = `${user.lastName}${user.firstName}`;
     this._cdRef.markForCheck();
+  }
+
+  public logout() {
+    this._store.dispatch(authActions.logout());
   }
 }

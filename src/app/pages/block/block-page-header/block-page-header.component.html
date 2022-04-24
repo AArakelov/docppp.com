@@ -31,7 +31,12 @@
 </div>
 
 <ng-template #sidebar>
-  <button tuiButton appearance="" size="s" type="button" (click)="toggle(true)" (tuiActiveZoneChange)="toggle($event)">
+  <div
+    class="sidebar tui-table__tr_cursor_pointer tui-space_right-2"
+    type="button"
+    (click)="toggle(true)"
+    (tuiActiveZoneChange)="toggle($event)"
+  >
     <tui-svg src="tuiIconAlignJustifyLarge"></tui-svg>
     <!-- Nest the directive so it is considered the same active zone -->
     <div *tuiSidebar="isOpenSidebar; direction: 'left'">
@@ -70,9 +75,9 @@
           </ng-template>
         </tui-accordion-item>
       </tui-accordion>
-      <button tuiButton appearance="" size="l" type="button">Sign Up</button>
+      <button tuiButton appearance="" (click)="logout()" size="l" type="button">Logout</button>
     </div>
-  </button>
+  </div>
 </ng-template>
 
 <!--User Avatar-->

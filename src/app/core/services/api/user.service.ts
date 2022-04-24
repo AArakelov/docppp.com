@@ -32,4 +32,6 @@ export class UserApiService extends HttpBaseService {
   public signUp(user: User): Observable<User> {
     return this.post(null, user);
   }
+
+  public resetPassword(): void {}
 }

@@ -50,4 +50,8 @@ export class SignInModalComponent implements OnInit {
   public signUp(): void {
     this._store.dispatch(authActions.openSignUpDialog());
   }
+
+  public openReestDialog() {
+    this._store.dispatch(authActions.openResetDialog());
+  }
 }

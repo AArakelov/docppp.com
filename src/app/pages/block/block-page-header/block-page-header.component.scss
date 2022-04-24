@@ -12,6 +12,10 @@
       display: none;
     }
   }
+
+  .sidebar {
+    display: flex;
+  }
 }
 
 .white {
@@ -39,7 +43,7 @@
 }
 
 // < 768px
-@media (max-width: 768px) {
+@media (min-width: 768px) {
 }
 
 // < 576px
@@ -55,6 +59,10 @@
       &__dropdown {
         display: flex;
       }
+    }
+
+    .sidebar {
+      display: none;
     }
   }
 }

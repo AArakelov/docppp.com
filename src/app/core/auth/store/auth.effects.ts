@@ -2,7 +2,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Inject, Injectable, Injector } from '@angular/core';
 
 import { authActions } from './index';
-import { catchError, map, of, Subscription, switchMap } from 'rxjs';
+import { catchError, map, of, Subscription, switchMap, tap } from 'rxjs';
 import { TuiDialogService } from '@taiga-ui/core';
 import { SignInModalComponent } from '../containers/sign-in-modal/sign-in-modal.component';
 import { PolymorpheusComponent } from '@tinkoff/ng-polymorpheus';
@@ -11,11 +11,13 @@ import { UserApiService } from '../../services/api/user.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { appRoutesNames } from '../../../app-routes.names';
+import { ResetPasswordModalComponent } from '../containers/reset-password-modal/reset-password-modal.component';
 
 @Injectable()
 export class AuthEffects {
   private signInDialogSubscription$: Subscription;
   private signUpDialogSubscription$: Subscription;
+  private resetPasswordDialogSubscription: Subscription;
 
   public openSignInDialog$ = createEffect(
     () =>
@@ -124,6 +126,43 @@ export class AuthEffects {
         );
       })
     )
+  );
+
+  public resetPassword$ = createEffect(
+    () =>
+      this._actions$.pipe(
+        ofType(authActions.openResetDialog),
+        map(() => {
+          if (this.signInDialogSubscription$) {
+            this.signInDialogSubscription$.unsubscribe();
+          }
+          this.resetPasswordDialogSubscription = this.dialogService
+            .open<ResetPasswordModalComponent>(
+              new PolymorpheusComponent(
+                ResetPasswordModalComponent,
+                this.injector
+              ),
+              {
+                dismissible: true,
+                label: 'Reset Password',
+              }
+            )
+            .subscribe();
+        })
+      ),
+    { dispatch: false }
+  );
+
+  public logout$ = createEffect(
+    () =>
+      this._actions$.pipe(
+        ofType(authActions.logout),
+        tap(() => {
+          localStorage.clear();
+          location.reload();
+        })
+      ),
+    { dispatch: false }
   );
 
   constructor(

@@ -1,0 +1,81 @@
+<div class="header tui-container tui-container_adaptive">
+  <ng-container *ngTemplateOutlet="sidebar"></ng-container>
+  <div class="header__logo tui-col_xs-0">LOGO</div>
+  <ul class="header__links">
+    <a class="header__link tui-space_right-5 tui-space_left-5" [routerLink]="appRouteNames.DESKTOP">Desktop</a>
+    <a class="header__link" [routerLink]="appRouteNames.MEDICAL_CARD">Medical card</a>
+  </ul>
+  <div class="header__profile">
+    <tui-marker-icon
+      class="custom tui-space_left-2 tui-table__tr_cursor_pointer"
+      size="xs"
+      src="tuiIconBellLarge"
+    ></tui-marker-icon>
+    <tui-svg class="tui-table__tr_cursor_pointer" src="tuiIconComment"></tui-svg>
+    <tui-hosted-dropdown class="header__profile__dropdown" tuiDropdownAlign="left" [content]="dropdown" [(open)]="open">
+      <button tuiButton type="button" appearance="" [iconRight]="icon">
+        <ng-container *ngTemplateOutlet="userAvatarTempl"></ng-container>
+      </button>
+    </tui-hosted-dropdown>
+  </div>
+  <ng-template #icon>
+    <tui-svg class="icon" src="tuiIconChevronDown" [class.icon_rotated]="open"></tui-svg>
+  </ng-template>
+  <ng-template #dropdown>
+    <tui-data-list>
+      <button *ngFor="let item of items" tuiOption (click)="onClick()">
+        {{ item }}
+      </button>
+    </tui-data-list>
+  </ng-template>
+</div>
+
+<ng-template #sidebar>
+  <button tuiButton appearance="" size="s" type="button" (click)="toggle(true)" (tuiActiveZoneChange)="toggle($event)">
+    <tui-svg src="tuiIconAlignJustifyLarge"></tui-svg>
+    <!-- Nest the directive so it is considered the same active zone -->
+    <div *tuiSidebar="isOpenSidebar; direction: 'left'">
+      <div class="tui-row tui-row_adaptive">
+        <ng-container *ngTemplateOutlet="userAvatarTempl"></ng-container>
+        <p class="tui-text_h6 tui-col-offset_md-4">{{ userName }}</p>
+      </div>
+
+      <tui-accordion [rounded]="false">
+        <tui-accordion-item borders="top-bottom">
+          Web APIs for Angular
+          <ng-template tuiAccordionItemContent>
+            <a
+              class="link"
+              *ngFor="let link of webApis"
+              tuiLink
+              target="_blank"
+              href="https://github.com/ng-web-apis/{{ link }}"
+            >
+              {{ link }}
+            </a>
+          </ng-template>
+        </tui-accordion-item>
+        <tui-accordion-item borders="top-bottom">
+          Other libraries
+          <ng-template tuiAccordionItemContent>
+            <a
+              *ngFor="let link of tinkoff"
+              tuiLink
+              target="_blank"
+              href="https://github.com/tinkoff/{{ link }}"
+              class="link"
+            >
+              {{ link }}
+            </a>
+          </ng-template>
+        </tui-accordion-item>
+      </tui-accordion>
+      <button tuiButton appearance="" size="l" type="button">Sign Up</button>
+    </div>
+  </button>
+</ng-template>
+
+<!--User Avatar-->
+<ng-template #userAvatarTempl>
+  <tui-avatar [avatarUrl]="userAvatar || null" [text]="userName || null" size="m" [rounded]="true"></tui-avatar>
+</ng-template>

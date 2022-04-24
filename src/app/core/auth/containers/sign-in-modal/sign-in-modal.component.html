@@ -1,0 +1,33 @@
+<form [formGroup]="form">
+  <div class="tui-row tui-row_sme">
+    <div class="tui-col_12">
+      <div class="tui-form__row">
+        <tui-input tuiTextfieldSize="m" formControlName="email" [tuiTextfieldLabelOutside]="true">
+          Type an email
+          <input tuiTextfield type="email" />
+        </tui-input>
+      </div>
+      <p class="">Forgot password?</p>
+      <div class="tui-form__row">
+        <tui-input-password formControlName="password" tuiTextfieldSize="m" [tuiTextfieldLabelOutside]="true">
+          Type a password
+          <input tuiTextfield placeholder="Make it secure!" />
+        </tui-input-password>
+      </div>
+      <div class="tui-form__row">
+        <button class="tui-col_12" (click)="onSubmit()" tuiButton size="m" type="submit">Submit</button>
+        <button
+          class="tui-col_12 tui-space_top-2"
+          (click)="signUp()"
+          [showLoader]="false"
+          tuiButton
+          type="button"
+          appearance="flat"
+          size="m"
+        >
+          Sign up
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,60 @@
+.header {
+  display: flex;
+  align-items: center;
+  &__links {
+    display: none;
+  }
+  &__profile {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    &__dropdown {
+      display: none;
+    }
+  }
+}
+
+.white {
+  display: inline-block;
+  padding: 0.625rem;
+  background-color: var(--tui-base-02);
+}
+
+.custom {
+  color: var(--tui-base-09);
+  background: var(--tui-base-01);
+}
+
+.link {
+  display: block;
+  margin: 0.75rem 0;
+}
+
+// < 1200px
+@media (max-width: 1200px) {
+}
+
+// < 992px
+@media (max-width: 992px) {
+}
+
+// < 768px
+@media (max-width: 768px) {
+}
+
+// < 576px
+@media (min-width: 576px) {
+  .header {
+    display: flex;
+    &__links {
+      display: flex;
+    }
+
+    &__profile {
+      display: flex;
+      &__dropdown {
+        display: flex;
+      }
+    }
+  }
+}

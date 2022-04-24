@@ -1,0 +1,90 @@
+<tui-stepper class="tui-space_bottom-2" orientation="horizontal" [activeItemIndex]="activeStep">
+  <button disabled (click)="onStep(i)" *ngFor="let step of steps; let i = index" tuiStep>
+    {{ step }}
+  </button>
+</tui-stepper>
+
+<form [formGroup]="form">
+  <ng-container [ngSwitch]="activeStep">
+    <div *ngSwitchCase="0">
+      <ng-container *ngTemplateOutlet="step1"></ng-container>
+    </div>
+    <div *ngSwitchCase="1">
+      <ng-container *ngTemplateOutlet="step2"></ng-container>
+    </div>
+  </ng-container>
+
+  <div class="tui-form__row">
+    <button class="tui-col_12" [disabled]="isDisabledStepForm" (click)="nextStep()" tuiButton size="m" type="submit">
+      {{ buttonText }}
+    </button>
+  </div>
+
+  <ng-template formGroupName="step1" #step1>
+    <div class="tui-row tui-row_sme">
+      <div class="tui-col_12">
+        <div class="tui-form__row">
+          <tui-input tuiTextfieldSize="m" formControlName="email" [tuiTextfieldLabelOutside]="true">
+            Type an email
+            <input tuiTextfield type="email" />
+          </tui-input>
+        </div>
+        <div class="tui-form__row">
+          <tui-input-password formControlName="password" tuiTextfieldSize="m" [tuiTextfieldLabelOutside]="true">
+            Type a password
+            <input tuiTextfield placeholder="Make it secure!" />
+          </tui-input-password>
+        </div>
+        <div class="tui-form__row">
+          <tui-input-password formControlName="confirmPassword" tuiTextfieldSize="m" [tuiTextfieldLabelOutside]="true">
+            Confirm password
+            <input tuiTextfield placeholder="Make it secure!" />
+          </tui-input-password>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template formGroupName="step2" #step2>
+    <div class="tui-row tui-row_sme">
+      <div class="tui-col_12">
+        <div class="tui-form__row">
+          <tui-input tuiTextfieldSize="m" formControlName="firstName" [tuiTextfieldLabelOutside]="true">
+            First name
+            <input tuiTextfield type="text" />
+          </tui-input>
+        </div>
+        <div class="tui-form__row">
+          <tui-input tuiTextfieldSize="m" formControlName="lastName" [tuiTextfieldLabelOutside]="true">
+            Last name
+            <input tuiTextfield type="text" />
+          </tui-input>
+        </div>
+        <div class="tui-form__row">
+          <tui-input tuiTextfieldSize="m" formControlName="patronymic" [tuiTextfieldLabelOutside]="true">
+            patronymic
+            <input tuiTextfield type="text" />
+          </tui-input>
+        </div>
+        <div class="tui-form__row">
+          <tui-input-phone formControlName="phone">
+            Type a phone number
+            <input tuiTextfield autocomplete="tel" />
+          </tui-input-phone>
+        </div>
+        <div class="tui-form__row">
+          <tui-select formControlName="sex">
+            Sex
+            <input tuiTextfield placeholder="Choose your sex" />
+            <tui-data-list-wrapper *tuiDataList [items]="sexItems"></tui-data-list-wrapper>
+          </tui-select>
+        </div>
+        <div class="tui-form__row">
+          <tui-input-date tuiUnfinishedValidator="Birthday" formControlName="birthday"> Choose a date </tui-input-date>
+        </div>
+        <div class="tui-form__field-checkbox tui-space_bottom-2">
+          <tui-checkbox-labeled formControlName="acceptAgreement" size="l"> Try this </tui-checkbox-labeled>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</form>

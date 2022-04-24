@@ -23,6 +23,7 @@
     "@ngrx/schematics": "^13.1.0",
     "@ngrx/store": "^13.1.0",
     "@ngrx/store-devtools": "^13.1.0",
+    "@taiga-ui/addon-mobile": "^2.42.0",
     "@taiga-ui/cdk": "^2.42.0",
     "@taiga-ui/core": "^2.42.0",
     "@taiga-ui/icons": "^2.42.0",

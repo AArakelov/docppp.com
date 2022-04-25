@@ -1,4 +1,7 @@
 export const appRoutesNames = {
-  DESKTOP: 'desktop',
-  MEDICAL_CARD: 'medical-card',
+  DASHBOARD: {
+    DASHBOARD: 'dashboard',
+    DESKTOP: 'desktop',
+    MEDICAL_CARD: 'medical-card',
+  },
 };

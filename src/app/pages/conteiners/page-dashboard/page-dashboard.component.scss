@@ -1,0 +1,32 @@
+@import '~@taiga-ui/core/styles/taiga-ui-local';
+.dashboard-page {
+  display: flex;
+  .side-menu {
+    border-right: 1px solid;
+    display: flex;
+    flex-direction: column;
+    width: 80px;
+    padding: 20px 10px;
+    height: 100vh;
+  }
+  &__content {
+    width: 100%;
+    background: #e5e5e5;
+  }
+}
+
+// < 1200px
+@media (max-width: 1200px) {
+}
+
+// < 992px
+@media (max-width: 992px) {
+}
+
+// < 768px
+@media (min-width: 768px) {
+}
+
+// < 576px
+@media (min-width: 576px) {
+}

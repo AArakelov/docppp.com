@@ -5,20 +5,12 @@ import { UserRoleGuard } from './guards/user-role.guard';
 
 const routes: Routes = [
   {
-    path: appRoutesNames.DESKTOP,
+    path: appRoutesNames.DASHBOARD.DASHBOARD,
     loadChildren: () =>
-      import('./pages/pages/page-desktop/page-desktop.module').then(
-        (m) => m.PageDesktopModule
+      import('./pages/conteiners/page-dashboard/page-dashboard.module').then(
+        (m) => m.PageDashboardModule
       ),
-    canActivate: [UserRoleGuard],
-  },
-  {
-    path: appRoutesNames.MEDICAL_CARD,
-    loadChildren: () =>
-      import('./pages/pages/page-medical-card/page-medical-card.module').then(
-        (m) => m.PageMedicalCardModule
-      ),
-    canActivate: [UserRoleGuard],
+    // canActivate: [UserRoleGuard],
   },
 ];
 

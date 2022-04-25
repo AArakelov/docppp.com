@@ -117,9 +117,15 @@ export class AuthEffects {
         return user$.pipe(
           map((user) => {
             if (payload.isRedirect) {
-              this._router.navigate([appRoutesNames.DESKTOP]);
+              this._router.navigate([
+                appRoutesNames.DASHBOARD.DASHBOARD,
+                appRoutesNames.DASHBOARD.DESKTOP,
+              ]);
             }
-            this._router.navigate([appRoutesNames.DESKTOP]);
+            this._router.navigate([
+              appRoutesNames.DASHBOARD.DASHBOARD,
+              appRoutesNames.DASHBOARD.DESKTOP,
+            ]);
 
             return authActions.loginSuccess({ user });
           })

@@ -1,0 +1,49 @@
+@import '~@taiga-ui/core/styles/taiga-ui-local';
+
+.medical-card {
+  display: flex;
+
+  &__sidebar {
+    background: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+
+    .sidebar__list {
+    }
+  }
+}
+
+// < 1200px
+@media (max-width: 1200px) {
+}
+
+// < 992px
+@media (max-width: 992px) {
+}
+
+// < 768px
+@media (min-width: 768px) {
+}
+
+// < 576px
+@media (min-width: 576px) {
+  .header {
+    display: flex;
+    &__links {
+      display: flex;
+    }
+
+    &__profile {
+      display: flex;
+      &__dropdown {
+        display: flex;
+      }
+    }
+
+    .sidebar {
+      display: none;
+    }
+  }
+}

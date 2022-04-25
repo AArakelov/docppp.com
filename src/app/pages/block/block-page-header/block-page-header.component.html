@@ -2,8 +2,10 @@
   <ng-container *ngTemplateOutlet="sidebar"></ng-container>
   <div class="header__logo tui-col_xs-0">LOGO</div>
   <ul class="header__links">
-    <a class="header__link tui-space_right-5 tui-space_left-5" [routerLink]="appRouteNames.DESKTOP">Desktop</a>
-    <a class="header__link" [routerLink]="appRouteNames.MEDICAL_CARD">Medical card</a>
+    <a class="header__link tui-space_right-5 tui-space_left-5" [routerLink]="appRouteNames.DASHBOARD.DESKTOP"
+      >Desktop</a
+    >
+    <a class="header__link" [routerLink]="appRouteNames.DASHBOARD.MEDICAL_CARD">Medical card</a>
   </ul>
   <div class="header__profile">
     <tui-marker-icon

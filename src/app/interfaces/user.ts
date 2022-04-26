@@ -10,5 +10,6 @@ export interface User {
   email: string;
   birthday: Date;
   password: string;
+  id?: number;
   emailVerified?: boolean;
 }

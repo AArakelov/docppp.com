@@ -1,2 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 //@import '~@taiga-ui/core/styles/taiga-ui-local';
+@import 'assets/styles/mixins/text-color';
+.d-flex {
+  display: flex;
+}
+
+.justify-content {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}

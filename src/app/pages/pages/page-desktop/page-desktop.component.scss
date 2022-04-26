@@ -1,0 +1,132 @@
+@import '~@taiga-ui/core/styles/taiga-ui-local';
+@import 'src/assets/styles/mixins/text-color';
+:host {
+  min-width: 320px;
+}
+.desktop {
+  &__left {
+    .card-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &__right {
+  }
+}
+.grey-card {
+  background: #f8f8f9;
+  border-radius: 10px;
+  padding: 24px 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__setting {
+    position: absolute;
+    right: 20px;
+    top: 12px;
+  }
+  &__link {
+    text-decoration: none;
+    background: #c7151c;
+    padding-top: 12px;
+    color: #fff;
+    text-align: center;
+    width: 84%;
+    border-radius: 4px;
+    height: 38px;
+  }
+}
+.white {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+}
+.doc-card {
+  margin-bottom: 20px;
+}
+.custom {
+  color: var(--tui-base-09);
+}
+.label {
+  @include text-mute();
+}
+
+.height-overflow {
+  height: 322px;
+  overflow: auto;
+}
+
+/*Documents*/
+.documents {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+  &__card {
+    background: #f8f8f9;
+    border-radius: 10px;
+  }
+}
+// < 1200px
+@media (min-width: 1200px) {
+}
+
+// < 992px
+@media (max-width: 992px) {
+}
+
+// < 768px
+@media (min-width: 768px) {
+  .desktop {
+    &__left {
+      .card-wrapper {
+        flex-direction: row;
+      }
+    }
+    &__right {
+    }
+  }
+  .grey-card {
+    background: #f8f8f9;
+    border-radius: 10px;
+    padding: 24px 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 264px;
+    width: 40%;
+    &__setting {
+    }
+    &__link {
+    }
+  }
+  .card {
+    flex-direction: row;
+  }
+  .doc-card {
+    width: 100%;
+    margin-right: 20px;
+  }
+
+  .documents {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-wrap: wrap;
+    &__card {
+      width: 44%;
+    }
+  }
+}
+
+// < 576px
+@media (min-width: 576px) {
+}

@@ -1,0 +1,17 @@
+@import '~@taiga-ui/core/styles/taiga-ui-local';
+:host {
+  display: block;
+  background: #ffff;
+  border-radius: 10px;
+  box-shadow: 0px 6px 8px rgba(215, 212, 219, 0.54);
+}
+.card {
+  &__content {
+    display: block;
+    padding: 20px;
+  }
+
+  &__footer {
+    padding: 20px;
+  }
+}

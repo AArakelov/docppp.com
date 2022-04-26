@@ -1,4 +1,9 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  OnInit,
+} from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -15,6 +20,7 @@ import { POLYMORPHEUS_CONTEXT } from '@tinkoff/ng-polymorpheus';
   selector: 'doc-sign-in-modal',
   templateUrl: './sign-in-modal.component.html',
   styleUrls: ['./sign-in-modal.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignInModalComponent implements OnInit {
   form: FormGroup;
@@ -35,8 +41,11 @@ export class SignInModalComponent implements OnInit {
   private initForm() {
     console.log(this.context.data);
     this.form = this.fb.group({
-      email: new FormControl(this.context.data.email, Validators.required),
-      password: new FormControl(null, Validators.required),
+      email: new FormControl(
+        this.context.data.email || 'a.g.arakelov2@gmail.com',
+        Validators.required
+      ),
+      password: new FormControl('12345678', Validators.required),
     });
     this.user$
       .pipe(filter((user) => !!user))

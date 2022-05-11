@@ -4,6 +4,7 @@
   min-width: 320px;
 }
 .desktop {
+  height: 100vh;
   &__left {
     .card-wrapper {
       display: flex;
@@ -61,7 +62,7 @@
   overflow: auto;
 }
 
-/*Documents*/
+/*----------Documents----------*/
 .documents {
   display: flex;
   flex-direction: column;
@@ -72,12 +73,54 @@
     border-radius: 10px;
   }
 }
+
+/*----------Calendar----------*/
+.calendar {
+  display: flex;
+  flex-direction: column;
+  background: #f8f8f9;
+
+  &__tui {
+    margin-bottom: 10px;
+  }
+  &__schedule {
+    padding: 16px 18px;
+    &-title {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__drug-list {
+    .drug-list__item {
+      border-left: 2px solid darkcyan;
+      display: flex;
+      justify-content: space-between;
+      padding-left: 8px;
+    }
+  }
+}
+
 // < 1200px
 @media (min-width: 1200px) {
+  .desktop {
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    &__left {
+      width: 70%;
+    }
+    &__right {
+      width: 29%;
+    }
+    .calendar {
+      height: 100vh;
+    }
+  }
 }
 
 // < 992px
-@media (max-width: 992px) {
+@media (min-width: 992px) {
 }
 
 // < 768px
@@ -111,7 +154,6 @@
   }
   .doc-card {
     width: 100%;
-    margin-right: 20px;
   }
 
   .documents {

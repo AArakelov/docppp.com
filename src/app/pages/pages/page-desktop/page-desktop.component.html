@@ -23,7 +23,9 @@
       </doc-card>
     </div>
     <div class="desktop__right">
-      <doc-card> </doc-card>
+      <doc-card>
+        <ng-container *ngTemplateOutlet="calendarTmpl"></ng-container>
+      </doc-card>
     </div>
   </ng-container>
 </div>
@@ -57,6 +59,7 @@
       </ng-template>
     </tui-accordion-item>
   </tui-accordion>
+  <ng-container *ngTemplateOutlet="calendarTmpl"></ng-container>
 </ng-template>
 
 <!--Grey Profile card-->
@@ -186,5 +189,32 @@
         </div>
       </tui-island>
     </ng-container>
+  </div>
+</ng-template>
+
+<!--Calendar Tpl-->
+<ng-template #calendarTmpl>
+  <div class="calendar">
+    <tui-calendar
+      class="calendar__tui"
+      [value]="value"
+      [markerHandler]="markerHandler"
+      [month]="firstMonth"
+      [(hoveredItem)]="hoveredItem"
+      (monthChange)="onMonthChangeFirst($event)"
+      (dayClick)="onDayClick($event)"
+    ></tui-calendar>
+    <div class="calendar__schedule">
+      <div class="calendar__schedule-title">
+        <label tuiLabel label="Schedule"></label>
+        <label tuiLabel label="Time"></label>
+      </div>
+      <ul class="calendar__drug-list">
+        <li class="drug-list__item">
+          <label tuiLabel label="Aspirin">have got drugs</label>
+          <label tuiLabel label="10:00"></label>
+        </li>
+      </ul>
+    </div>
   </div>
 </ng-template>

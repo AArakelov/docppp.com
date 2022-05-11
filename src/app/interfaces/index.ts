@@ -6,3 +6,5 @@ export * from './file-character';
 export * from './file-model';
 export * from './specialization';
 export * from './sub-type';
+export * from '././allergy';
+export * from './medicament';

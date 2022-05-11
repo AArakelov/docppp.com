@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PageMonitoringComponent } from './page-monitoring.component';
+import { PageProfileComponent } from './page-profile.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    component: PageMonitoringComponent,
+    component: PageProfileComponent,
   },
 ];
 
 @NgModule({
-  declarations: [PageMonitoringComponent],
+  declarations: [PageProfileComponent],
   imports: [CommonModule, RouterModule.forChild(routes)],
 })
-export class PageMonitoringModule {}
+export class PageProfileModule {}

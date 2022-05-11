@@ -3,6 +3,7 @@ export const appRoutesNames = {
     DASHBOARD: 'dashboard',
     DESKTOP: 'desktop',
     MEDICAL_CARD: 'medical-card',
+    Profile: 'profile',
     DOCUMENT: {
       DOCUMENTS: 'documents',
       RESEARCHES: 'researches',

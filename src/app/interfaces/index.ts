@@ -8,3 +8,4 @@ export * from './specialization';
 export * from './sub-type';
 export * from '././allergy';
 export * from './medicament';
+export * from './menu-item';

@@ -15,6 +15,28 @@
   }
 }
 
+.sidebar {
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+  }
+  &__link {
+    display: flex;
+    padding: 20px;
+    color: #504f5a;
+  }
+  &__link-child {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 20px 40px;
+    color: #504f5a;
+  }
+}
+.active {
+  background-color: rgba(199, 21, 28, 0.1);
+  color: #c7151c;
+}
 // < 1200px
 @media (max-width: 1200px) {
 }

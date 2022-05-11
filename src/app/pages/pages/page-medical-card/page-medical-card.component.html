@@ -1,34 +1,39 @@
 <div class="medical-card">
   <div class="medical-card__sidebar">
     <h2>Medical card</h2>
-    <ul class="sidebar__list">
-      <li class="sidebar__item">
-        <a class="sidebar__link"> Your profile</a>
-      </li>
-      <li class="sidebar__item">
-        <a class="sidebar__link"> Documents</a>
-        <ul class="sidebar-link__child">
-          <li class="sidebar__item">
-            <a class="sidebar__link"> Research</a>
-          </li>
-          <li class="sidebar__item">
-            <a class="sidebar__link"> Research</a>
-          </li>
-          <li class="sidebar__item">
-            <a class="sidebar__link"> Research</a>
-          </li>
-          <li class="sidebar__item">
-            <a class="sidebar__link"> Research</a>
-          </li>
-          <li class="sidebar__item">
-            <a class="sidebar__link"> Research</a>
-          </li>
-          <li class="sidebar__item">
-            <a class="sidebar__link"> Research</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <ng-container *ngIf="menuItems$ | async as menuItems">
+      <ul class="sidebar">
+        <li class="sidebar__item" *ngFor="let menu of menuItems">
+          <ng-container *ngIf="!menu.sub">
+            <a
+              class="sidebar__link"
+              [routerLinkActiveOptions]="{ exact: false }"
+              routerLinkActive=" active"
+              [routerLink]="[menu.state]"
+              >{{ menu.name }}</a
+            >
+          </ng-container>
+          <ng-container *ngIf="menu?.sub?.length">
+            <a
+              [routerLinkActiveOptions]="{ exact: false }"
+              routerLinkActive="active"
+              class="sidebar__link"
+              [routerLink]="[appRoutesName.DASHBOARD.DOCUMENT.DOCUMENTS]"
+              >{{ menu.name }}</a
+            >
+            <ng-container *ngFor="let subMenu of menu.sub">
+              <a
+                class="sidebar__link-child"
+                [routerLinkActiveOptions]="{ exact: true }"
+                routerLinkActive="active"
+                [routerLink]="[appRoutesName.DASHBOARD.DOCUMENT.DOCUMENTS, subMenu.id]"
+                >{{ subMenu.name }}</a
+              >
+            </ng-container>
+          </ng-container>
+        </li>
+      </ul>
+    </ng-container>
   </div>
   <div class="medical-card__content tui-container tui-container-adaptive">
     <router-outlet></router-outlet>
